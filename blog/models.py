@@ -19,19 +19,11 @@ class User(db.Model,UserMixin):
 class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-<<<<<<< HEAD
-    titile = db.Column(db.String(30), nullable=False)
-=======
     title = db.Column(db.String(30), nullable=False)
->>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
     content = db.Column(db.Text, nullable=False)
     date = db.Column(db.DateTime, nullable=False,default=datetime.datetime.now)
     user_id=db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False)
 
 
     def __repr__(self):
-<<<<<<< HEAD
-        return f'Post({self.id}-{self.titile}-{self.content}-{self.date})'
-=======
         return f'Post({self.id}-{self.title}-{self.content}-{self.date})'
->>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)

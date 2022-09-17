@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 {%include 'error_massages.html'%}
-<<<<<<< HEAD
 <h3>profile</h3>
-=======
 <a href={{url_for('new_post')}} class="btn btn-info">new post</a>
->>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
 <hr>
 <h3>username: {{current_user.username}}</h3>
 <h3>email: {{current_user.email}}</h3>

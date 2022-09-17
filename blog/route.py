@@ -1,13 +1,10 @@
 from blog import app,db,bcrypt
-<<<<<<< HEAD
 from blog.forms import registrationForms,loginform,profileform
 from flask import render_template,redirect,url_for,flash
 from blog.models import User
-=======
 from blog.forms import registrationForms,loginform,profileform,postform
 from flask import render_template,redirect,url_for,flash
 from blog.models import User,Post
->>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
 from flask_login import login_user,current_user,logout_user
 
 @app.route('/')
@@ -57,12 +54,10 @@ def profile():
 	if current_user.is_authenticated:
 		p_form=profileform()
 		if p_form.validate_on_submit():
-<<<<<<< HEAD
+
 			print(p_form.new_username.data)
 			print(p_form.new_email.data)
 
-=======
->>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
 			# u = User.query.filter_by(email=current_user.email).first()
 			# u.username=p_form.new_username.data
 			# u.email=p_form.new_email.data
@@ -80,8 +75,7 @@ def profile():
 	else:
 		flash("you should login first", "danger")
 		return redirect(url_for('login'))
-<<<<<<< HEAD
-=======
+
 @app.route('/new_post',methods=['GET','POST'])
 def new_post():
 	if current_user.is_authenticated:
@@ -98,4 +92,4 @@ def new_post():
 	else:
 		flash("you should login first", "danger")
 		return redirect(url_for('login'))
->>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
+

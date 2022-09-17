@@ -1,9 +1,7 @@
 from flask_wtf import FlaskForm
-<<<<<<< HEAD
 from wtforms import StringField,validators,PasswordField,BooleanField
-=======
 from wtforms import StringField,validators,PasswordField,BooleanField,TextAreaField
->>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
+
 class registrationForms(FlaskForm):
 		username=StringField('username',validators=[validators.DataRequired(),validators.length(4,20)])
 		email=StringField('email',validators=[validators.DataRequired(),validators.Email()])
@@ -21,11 +19,7 @@ class profileform(FlaskForm):
 	new_username = StringField('new_username', validators=[validators.DataRequired(), validators.length(4,20)])
 	new_email = StringField('new_email', validators=[validators.DataRequired(), validators.Email()])
 	# new_password = PasswordField('new_password', validators=[validators.data_required()])
-<<<<<<< HEAD
-=======
 
 class postform(FlaskForm):
 	title = StringField('title', validators=[validators.DataRequired(), validators.length(4,30)])
 	content = TextAreaField('content', validators=[validators.DataRequired()])
-
->>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
