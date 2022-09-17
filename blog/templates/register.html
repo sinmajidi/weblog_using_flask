@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{%include 'error_massages.html'%}
+<form action="/register" method="POST">
+ {{form.csrf_token}}
+ {{form.username.label(class='form-control-label')}} : {{form.username(class='form-control')}}
+ {{form.email.label(class='form-control-label')}} : {{form.email(class='form-control')}}
+ {{form.password.label(class='form-control-label')}} : {{form.password(class='form-control')}}
+ {{form.confrim_password.label(class='form-control-label')}} : {{form.confrim_password(class='form-control')}}
+  <input type="submit" value="Register" class="btn btn-info">
+</form>
+{% endblock content%}

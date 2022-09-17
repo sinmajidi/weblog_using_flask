@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{%include 'error_massages.html'%}
+<<<<<<< HEAD
+<h3>profile</h3>
+=======
+<a href={{url_for('new_post')}} class="btn btn-info">new post</a>
+>>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
+<hr>
+<h3>username: {{current_user.username}}</h3>
+<h3>email: {{current_user.email}}</h3>
+<form action="" method="POST">
+ {{form.csrf_token}}
+ {{form.new_username.label(class='form-control-label')}} : {{form.new_username(class='form-control')}}
+ {{form.new_email.label(class='form-control-label')}} : {{form.new_email(class='form-control')}}
+
+ <input type="submit" value="change info" class="btn btn-info">
+</form>
+
+{% endblock content%}

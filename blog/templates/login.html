@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{%include 'error_massages.html'%}
+<form action="/login" method="POST">
+ {{form.csrf_token}}
+ {{form.email.label(class='form-control-label')}} : {{form.email(class='form-control')}}
+ {{form.password.label(class='form-control-label')}} : {{form.password(class='form-control')}}
+<<<<<<< HEAD
+=======
+ {{form.remember.label}} : {{form.remember}}
+ <br>
+>>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
+ <input type="submit" value="Login" class="btn btn-info">
+</form>
+{% endblock content%}

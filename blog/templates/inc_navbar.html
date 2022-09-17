@@ -1,0 +1,12 @@
+{%if current_user.is_authenticated:%}
+<a class="nav-item nav-link active" href="{{url_for('profile')}}">profile </a>
+<<<<<<< HEAD
+=======
+<a class="nav-item nav-link active" href="{{url_for('new_post')}}">new post </a>
+>>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
+<a class="nav-item nav-link active" href="{{url_for('logout')}}">logout </a>
+{%endif%}
+{%if current_user.is_authenticated==False:%}
+<a class="nav-item nav-link active" href="{{url_for('register')}}">register </a>
+         <a class="nav-item nav-link active" href="{{url_for('login')}}">login </a>
+{%endif%}

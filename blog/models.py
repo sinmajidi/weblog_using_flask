@@ -1,0 +1,37 @@
+from blog import db,login_manager
+import datetime
+from flask_login import UserMixin
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+class User(db.Model,UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(30), unique=True, nullable=False)
+    email = db.Column(db.String(50), unique=True, nullable=False)
+    password=db.Column(db.String(50),nullable=False)
+    posts=db.relationship('Post',backref='author',lazy=True)
+
+    def __repr__(self):
+        return f'User({self.id}-{self.username})'
+
+class Post(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+<<<<<<< HEAD
+    titile = db.Column(db.String(30), nullable=False)
+=======
+    title = db.Column(db.String(30), nullable=False)
+>>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)
+    content = db.Column(db.Text, nullable=False)
+    date = db.Column(db.DateTime, nullable=False,default=datetime.datetime.now)
+    user_id=db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False)
+
+
+    def __repr__(self):
+<<<<<<< HEAD
+        return f'Post({self.id}-{self.titile}-{self.content}-{self.date})'
+=======
+        return f'Post({self.id}-{self.title}-{self.content}-{self.date})'
+>>>>>>> ede3b94 (i pluse a tab for user who can create new post and the new post sit on data base)

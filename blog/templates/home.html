@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>hey</h3>
+{%if current_user.is_authenticated:%}
+<hr>
+<h3>hello {{current_user.username}}</h3>
+{%endif%}
+{% endblock content%}
