@@ -9,8 +9,8 @@ from flask_login import login_user,current_user,logout_user
 
 @app.route('/')
 def home():
-	print("current user: ", current_user)
-	return render_template('home.html')
+	posts=Post.query.all()
+	return render_template('home.html',posts=posts)
 @app.route('/about')
 def about():
 	return render_template('home.html')
@@ -92,4 +92,9 @@ def new_post():
 	else:
 		flash("you should login first", "danger")
 		return redirect(url_for('login'))
+@app.route('/show/<int:post_id>')
+def show_articles(post_id):
+	post=Post.query.get(post_id)
+	return render_template('show.html', post=post)
+
 

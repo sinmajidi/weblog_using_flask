@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<h3>hey</h3>
 {%if current_user.is_authenticated:%}
-<hr>
 <h3>hello {{current_user.username}}</h3>
+<div class="card">
+{%for post in posts:%}
+    {%if post.author.username==current_user.username:%}
+        <a href="{{url_for('show_articles',post_id=post.id)}}" class="card-body">title: {{post.title}}</a>
+    {%endif%}
+    <hr>
+{%endfor%}
+</div>
 {%endif%}
 {% endblock content%}

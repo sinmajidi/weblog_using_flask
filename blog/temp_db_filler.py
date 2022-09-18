@@ -12,7 +12,7 @@ db.create_all()
 #---------------read data base--------------------
 print(User.query.all())
 # print(User.query.first().posts)
-print(Post.query.all())
+# print(Post.query.all())
 # print(Post.query.first().user_id)
 # print(Post.query.first().author)
 # print(Post.query.filter_by(user_id='admin').first())
