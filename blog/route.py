@@ -1,9 +1,6 @@
 from blog import app,db,bcrypt
-from blog.forms import registrationForms,loginform,profileform
-from flask import render_template,redirect,url_for,flash
-from blog.models import User
 from blog.forms import registrationForms,loginform,profileform,postform
-from flask import render_template,redirect,url_for,flash
+from flask import render_template,redirect,url_for,flash,abort
 from blog.models import User,Post
 from flask_login import login_user,current_user,logout_user
 
@@ -96,5 +93,15 @@ def new_post():
 def show_articles(post_id):
 	post=Post.query.get(post_id)
 	return render_template('show.html', post=post)
+@app.route('/delete/<int:post_id>')
+def delete_articles(post_id):
+	post=Post.query.get_or_404(post_id)
+	if post.author!=current_user:
+		abort(403)
+	else:
+		db.session.delete(post)
+		db.session.commit()
+		flash("post deleted","info")
+	return redirect(url_for('home'))
 
 
