@@ -103,5 +103,28 @@ def delete_articles(post_id):
 		db.session.commit()
 		flash("post deleted","info")
 	return redirect(url_for('home'))
+@app.route('/update/<int:post_id>',methods=['GET','POST'])
+def update_articles(post_id):
+	post = Post.query.get_or_404(post_id)
+	if post.author != current_user:
+		abort(403)
+	else:
+		if current_user.is_authenticated:
+			form = postform()
+			if form.validate_on_submit():
+				post.title=form.title.data
+				post.content=form.content.data
+				db.session.commit()
+				flash("your post update succesfully", "info")
+				return redirect(url_for('show_articles',post_id=post.id))
+			else:
+				form.title.data=post.title
+				form.content.data=post.content
+				return render_template('update_articles.html', form=form)
+		else:
+			flash("you should login first", "danger")
+			return redirect(url_for('login'))
+
+
 
 

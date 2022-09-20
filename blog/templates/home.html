@@ -5,7 +5,7 @@
 <div class="card">
 {%for post in posts:%}
     {%if post.author.username==current_user.username:%}
-        <a href="{{url_for('show_articles',post_id=post.id)}}" class="card-body">title: {{post.title}}</a>
+        <a href="{{url_for('show_articles',post_id=post.id)}}" class="card-body">{{post.title}}</a>
     {%endif%}
     <hr>
 {%endfor%}

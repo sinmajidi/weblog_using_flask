@@ -4,5 +4,6 @@
 <h1>{{post.title}}</h1>
 <small>{{post.author.username}}-{{post.date.strftime("%x")}}-{{post.date.strftime("%X")}}</small>
 <a href="{{url_for('delete_articles',post_id=post.id)}}" class="btn btn-danger" style="float: right;">delete post</a>
+<a href="{{url_for('update_articles',post_id=post.id)}}" class="btn btn-info" style="float: right;">update post</a>
 <p>{{post.content}}</p>
 {% endblock content%}

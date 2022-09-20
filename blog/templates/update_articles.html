@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+{%include 'error_massages.html'%}
+<form action="" method="POST">
+ {{form.csrf_token}}
+ {{form.title.label(class='form-control-label')}} : {{form.title(class='form-control')}}
+ {{form.content.label(class='form-control-label')}} : {{form.content(class='form-control')}}
+ <br>
+ <input type="submit" value="update" class="btn btn-secondary">
+</form>
+{% endblock content%}
